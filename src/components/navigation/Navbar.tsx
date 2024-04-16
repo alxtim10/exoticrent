@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import ModalNavbar from "./ModalNavbar";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -12,31 +12,36 @@ const Navbar = () => {
     {
       label: "Home",
       description: "Exotic Rent, home of luxury cars",
-      link: 'home'
+      link: "home",
     },
     {
       label: "Rent",
       description: "Rent luxury cars with the best quality",
-      link: 'rent'
+      link: "rent",
     },
     {
       label: "Pricing",
       description: "Subscribe exotic rent membership",
-      link: 'pricing'
+      link: "pricing",
     },
     {
       label: "Login",
       description: "Login to your account ",
-      link: 'entry'
+      link: "entry",
     },
   ];
 
   return (
     <nav className="relative">
       <div className="flex items-center justify-between">
-        <h1 onClick={() => {
-          router.push(`/`)
-        }} className="text-xl font-bold cursor-pointer">Exotic Rent</h1>
+        <h1
+          onClick={() => {
+            router.push(`/`);
+          }}
+          className="text-xl font-bold cursor-pointer"
+        >
+          Exotic Rent
+        </h1>
         <div
           onClick={() => {
             setShow((prev) => !prev);
@@ -55,9 +60,13 @@ const Navbar = () => {
           <ul className="flex gap-5">
             {tabs.map((data: any, i: any) => {
               return (
-                <li onClick={() => {
-                  router.push(`/${data.link}`)
-                }} key={i}>
+                <li
+                  onClick={() => {
+                    setShow((prev) => !prev);
+                    router.push(`/${data.link}`);
+                  }}
+                  key={i}
+                >
                   <h1 className="text-sm font-semibold">{data.label}</h1>
                 </li>
               );
@@ -65,7 +74,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <ModalNavbar show={show} tabs={tabs} />
+      <ModalNavbar show={show} tabs={tabs} setShow={setShow} />
     </nav>
   );
 };

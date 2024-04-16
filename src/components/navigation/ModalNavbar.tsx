@@ -6,9 +6,10 @@ import { useRouter } from 'next/navigation'
 interface IModalNavbar {
   show: boolean;
   tabs: any;
+  setShow: any;
 }
 
-const ModalNavbar = ({ show, tabs }: IModalNavbar) => {
+const ModalNavbar = ({ show, tabs, setShow }: IModalNavbar) => {
   const router = useRouter();
   return (
     <section
@@ -22,6 +23,7 @@ const ModalNavbar = ({ show, tabs }: IModalNavbar) => {
             return (
               <li
                 onClick={() => {
+                  setShow((prev: any) => !prev);
                   router.push(`/${data.link}`);
                 }}
                 className="flex items-center justify-between p-5 h-20 hover:bg-[#d6d5d5] transition-all cursor-pointer rounded-md"

@@ -1,7 +1,7 @@
 const page = () => {
   return (
     <section className="flex items-center justify-center max-w-lg w-full p-5 mt-32">
-      <div className="bg-gray-800 rounded-lg shadow-xl overflow-hidden w-full">
+      <div className="bg-black rounded-lg shadow-xl overflow-hidden w-full">
         <div className="p-8">
           <h2 className="text-center text-3xl font-extrabold text-white">
             Welcome
@@ -46,7 +46,7 @@ const page = () => {
 
               <div className="text-sm">
                 <a
-                  className="font-medium text-indigo-500 hover:text-indigo-400"
+                  className="font-medium text-[#dfdfdf] hover:text-slate-400"
                   href="#"
                 >
                   Forgot your password?
@@ -56,7 +56,7 @@ const page = () => {
 
             <div>
               <button
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-[#dfdfdf] hover:bg-[#b9b8b8] "
                 type="submit"
               >
                 Sign In
@@ -65,9 +65,9 @@ const page = () => {
           </form>
         </div>
         <div className="px-8 py-4 bg-gray-700 text-center">
-          <span className="text-gray-400">Don&apos;t have an account?</span>
+          <span className="text-gray-400 mr-2">Don&apos;t have an account?</span>
           <a
-            className="font-medium text-indigo-500 hover:text-indigo-400"
+            className="font-medium text-[#dfdfdf] hover:text-slate-400"
             href="#"
           >
             Sign up
