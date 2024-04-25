@@ -27,7 +27,7 @@ const Navbar = () => {
     {
       label: "Login",
       description: "Login to your account ",
-      link: "entry",
+      link: "signin",
     },
   ];
 

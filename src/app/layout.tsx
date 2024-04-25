@@ -20,8 +20,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="py-5 px-5">
           <Navbar />
-        </div>
-        {children}
+        </div> 
+        <div className="p-5">{children}</div>
       </body>
     </html>
   );
