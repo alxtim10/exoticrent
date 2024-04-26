@@ -7,12 +7,11 @@ import Perks from "@/components/perks/Perks";
 export default function Home() {
   return (
     <section>
-      <section className="px-5">
+      <section>
         <Hero />
         <Partners />
         <Perks />
       </section>
-      <Footer />
     </section>
   );
 }

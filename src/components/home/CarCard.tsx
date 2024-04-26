@@ -20,7 +20,7 @@ const CarCard = (props: any) => {
         ></Image>
         <div>
           <h1 className="font-bold text-xl mt-2">{item.name}</h1>
-          <h1 className="text-sm">{item.desc}</h1>
+          <h1 className="text-sm">{item.engine_type}</h1>
           <button
             onClick={() => {
               router.push(`/home/${item.id}`);
