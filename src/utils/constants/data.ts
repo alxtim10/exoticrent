@@ -9,7 +9,10 @@ export const cars = [
         power: '473 hp @ 6250 rpm',
         transmission: '6-speed manual',
         torque: '406 lb-ft @ 2650 rpm',
-        price: 2000000000
+        otr_price: 2000000000,
+        daily_price: 5000000,
+        daily_overtime_price: 2000000,
+        hourly_price: 200000
     },
     {
         image:'/cars/benz-gclass.jpg',
@@ -21,7 +24,10 @@ export const cars = [
         power: '473 hp @ 6250 rpm',
         transmission: '6-speed manual',
         torque: '406 lb-ft @ 2650 rpm',
-        price: 6500000000
+        otr_price: 6500000000,
+        daily_price: 13000000,
+        daily_overtime_price: 3000000,
+        hourly_price: 500000
     },
     {
         image:'/cars/lamborghini-huracan.jpg',
@@ -33,7 +39,10 @@ export const cars = [
         power: '473 hp @ 6250 rpm',
         transmission: '6-speed manual',
         torque: '406 lb-ft @ 2650 rpm',
-        price: 9000000000
+        otr_price: 9000000000,
+        daily_price: 18000000,
+        daily_overtime_price: 9000000,
+        hourly_price: 750000
     },
     {
         image:'/cars/toyota-landcruiser.jpeg',
@@ -45,7 +54,10 @@ export const cars = [
         power: '473 hp @ 6250 rpm',
         transmission: '6-speed manual',
         torque: '406 lb-ft @ 2650 rpm',
-        price: 2500000000
+        otr_price: 2500000000,
+        daily_price: 5000000,
+        daily_overtime_price: 2500000,
+        hourly_price: 200000
     },
     {
         image:'/cars/honda-typer.jpg',
@@ -57,6 +69,9 @@ export const cars = [
         power: '473 hp @ 6250 rpm',
         transmission: '6-speed manual',
         torque: '406 lb-ft @ 2650 rpm',
-        price: 1400000000
+        otr_price: 1500000000,
+        daily_price: 3000000,
+        daily_overtime_price: 1500000,
+        hourly_price: 150000
     },
 ];

@@ -10,7 +10,7 @@ const SignInCard = () => {
   }
 
   return (
-    <section className="flex items-center justify-center max-w-lg w-full p-5 mt-32">
+    <section className="flex items-center justify-center max-w-lg w-full p-5 mt-28">
       <div className="bg-gray-800 rounded-lg shadow-xl overflow-hidden w-full">
         <div className="p-8">
           <h2 className="text-center text-3xl font-extrabold text-white">

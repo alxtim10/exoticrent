@@ -3,7 +3,7 @@ import React from "react";
 
 const Title = () => {
   return (
-    <section className="mt-28 flex items-center justify-between">
+    <section className="mt-24 flex items-center justify-between">
       <div>
         <h1 className="text-6xl font-bold">Rent</h1>
         <h1 className="text-6xl font-bold">Luxury Cars</h1>

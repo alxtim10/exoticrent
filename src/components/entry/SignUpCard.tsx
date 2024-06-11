@@ -49,30 +49,6 @@ const SignUpCard = () => {
                 />
               </div>
             </div>
-
-            <div className="flex items-center justify-between mt-4">
-              <div className="flex items-center">
-                <input
-                  className="h-4 w-4 text-indigo-500 focus:ring-indigo-400 border-gray-600 rounded"
-                  type="checkbox"
-                  name="remember-me"
-                  id="remember-me"
-                />
-                <label className="ml-2 block text-sm text-gray-400">
-                  Remember me
-                </label>
-              </div>
-
-              <div className="text-sm">
-                <a
-                  className="font-medium text-[#dfdfdf] hover:text-slate-400"
-                  href="#"
-                >
-                  Forgot your password?
-                </a>
-              </div>
-            </div>
-
             <div>
               <button
                 className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-[#dfdfdf] hover:bg-[#b9b8b8] "

@@ -10,11 +10,11 @@ interface priceAction {
 
 export const calculatePrice = (value: number): priceAction => {
 
-    let hourly = value/500;
-    let hourlyOvertime = (value/500)/2;
-    let halfDay = (value*2.1)/100;
-    let daily = (value*3.6)/100;
-    let dailyOvertime = (value*0.25)/100;
+    let daily = value/500;
+    let dailyOvertime = daily/2;
+    let hourly = daily/10;
+    let hourlyOvertime = hourly/1;
+    let halfDay = daily/2;
     
     return {
         hourly,
