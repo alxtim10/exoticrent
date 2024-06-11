@@ -23,7 +23,7 @@ const CarCard = (props: any) => {
           <h1 className="text-sm">{item.engine_type}</h1>
           <button
             onClick={() => {
-              router.push(`/home/${item.id}`);
+              router.push(`/rent/${item.id}`);
             }}
             className="bg-black shadow-xl text-white py-1 px-3 mt-3 text-sm rounded-md hover:bg-gray-700 transition-all"
           >

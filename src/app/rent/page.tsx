@@ -1,7 +1,7 @@
-import CategoryCard from "@/components/home/CarCard";
+import CategoryCard from "@/components/rent/CarCard";
 import React from "react";
 import { cars } from "@/utils/constants/data";
-import ListCars from "@/components/home/ListCars";
+import ListCars from "@/components/rent/ListCars";
 
 const page = () => {
   return (

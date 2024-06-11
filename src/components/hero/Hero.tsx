@@ -11,9 +11,9 @@ const Hero = () => {
       <div className="flex items-center justify-start gap-2 mt-8">
         <button
           onClick={() => {
-            router.push("/home");
+            router.push("/rent");
           }}
-          className="bg-black text-white py-1 px-3 text-sm rounded-xl hover:bg-gray-700 transition-all"
+          className="bg-black text-white py-1 px-3 text-sm rounded-lg hover:bg-gray-700 transition-all"
         >
           Rent now &gt;
         </button>
