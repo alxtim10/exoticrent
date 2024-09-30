@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Perks = () => {
   return (
-    <section className="mt-28">
+    <section className="mt-28 md:px-20">
       <div className="flex items-center justify-between w-full">
         <div>
           <h1 className="text-2xl font-bold">

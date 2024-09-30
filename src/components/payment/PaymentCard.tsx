@@ -1,9 +1,9 @@
 import { toIDR } from "@/utils/formats/formatCurrency";
 import React, { useEffect, useState } from "react";
 import CreditCardForm from "./CreditCardForm";
+import BankTransfer from "./BankTransfer";
 
 const PaymentCard = (props: any) => {
-
   const { lengthCode, data } = props;
 
   const [count, setCount] = useState(1);
@@ -12,7 +12,7 @@ const PaymentCard = (props: any) => {
 
   useEffect(() => {
     setCount(1);
-  }, [lengthCode])
+  }, [lengthCode]);
 
   return (
     <div>
@@ -40,10 +40,10 @@ const PaymentCard = (props: any) => {
         </div>
         <div hidden={!isBank} className="mt-4">
           <div className="flex flex-col items-center justify-center gap-2 w-full">
-            <div className="bg-gray-50 shadow-md rounded-md p-2 w-full hover:bg-white transition-all cursor-pointer text-sm">
-              Bank Transfer
+            <div className="w-full">
+              <BankTransfer />
             </div>
-            <div className="bg-gray-50 shadow-md rounded-md p-2 w-full hover:bg-white transition-all cursor-pointer text-sm">
+            <div className="bg-gray-50 shadow-md rounded-md px-3 py-2 w-full hover:bg-white transition-all cursor-pointer text-sm">
               Virtual Account
             </div>
           </div>
@@ -99,7 +99,9 @@ const PaymentCard = (props: any) => {
                 -
               </span>
             </div>
-            <h1 className="text-black text-sm">{lengthCode == 'D' ? 'Day(s)' : 'Hour(s)'}</h1>
+            <h1 className="text-black text-sm">
+              {lengthCode == "D" ? "Day(s)" : "Hour(s)"}
+            </h1>
           </div>
         </div>
         <div className="border border-gray mt-3"></div>
@@ -109,16 +111,30 @@ const PaymentCard = (props: any) => {
         </div>
         <div className="flex justify-between items-center mt-5">
           <h1 className="text-gray-600 text-sm">Subtotal</h1>
-          <h1 className="text-black text-sm">{toIDR((lengthCode == 'D' ? data.daily_price : data.hourly_price) * count)}</h1>
+          <h1 className="text-black text-sm">
+            {toIDR(
+              (lengthCode == "D" ? data.daily_price : data.hourly_price) * count
+            )}
+          </h1>
         </div>
         <div className="flex justify-between items-center mt-1">
           <h1 className="text-gray-400 text-xs">*Overtime</h1>
-          <h1 className="text-gray-400 text-xs">{toIDR((lengthCode == 'D' ? data.daily_overtime_price : data.hourly_price) * count)}</h1>
+          <h1 className="text-gray-400 text-xs">
+            {toIDR(
+              (lengthCode == "D"
+                ? data.daily_overtime_price
+                : data.hourly_price) * count
+            )}
+          </h1>
         </div>
         <div className="border border-gray mt-3"></div>
         <div className="flex justify-between items-center mt-3">
           <h1 className="text-blue-600 text-sm font-bold">Total</h1>
-          <h1 className="text-black text-sm">{toIDR((lengthCode == 'D' ? data.daily_price : data.hourly_price) * count)}</h1>
+          <h1 className="text-black text-sm font-bold">
+            {toIDR(
+              (lengthCode == "D" ? data.daily_price : data.hourly_price) * count
+            )}
+          </h1>
         </div>
         <div className="flex items-center justify-between mt-5">
           <div></div>

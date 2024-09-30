@@ -3,33 +3,11 @@ import { useState } from "react";
 import Image from "next/image";
 import ModalNavbar from "./ModalNavbar";
 import { useRouter } from "next/navigation";
+import { navbarTabs } from "@/utils/constants/data";
 
 const Navbar = () => {
   const [show, setShow] = useState<boolean>(false);
   const router = useRouter();
-
-  const tabs = [
-    {
-      label: "Home",
-      description: "Exotic Rent, home of luxury cars",
-      link: "home",
-    },
-    {
-      label: "Rent",
-      description: "Rent luxury cars with the best quality",
-      link: "rent",
-    },
-    {
-      label: "Pricing",
-      description: "Subscribe exotic rent membership",
-      link: "pricing",
-    },
-    {
-      label: "Login",
-      description: "Login to your account ",
-      link: "signin",
-    },
-  ];
 
   return (
     <nav className="relative">
@@ -58,7 +36,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:block">
           <ul className="flex gap-5">
-            {tabs.map((data: any, i: any) => {
+            {navbarTabs.map((data: any, i: any) => {
               return (
                 <li
                   onClick={() => {
@@ -74,7 +52,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <ModalNavbar show={show} tabs={tabs} setShow={setShow} />
+      <ModalNavbar show={show} tabs={navbarTabs} setShow={setShow} />
     </nav>
   );
 };

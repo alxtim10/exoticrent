@@ -6,7 +6,7 @@ const Hero = () => {
   const router = useRouter();
 
   return (
-    <section>
+    <section className="md:px-9">
       <Title />
       <div className="flex items-center justify-start gap-2 mt-8">
         <button

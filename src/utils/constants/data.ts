@@ -59,19 +59,42 @@ export const cars = [
         daily_overtime_price: 2500000,
         hourly_price: 200000
     },
-    {
-        image:'/cars/honda-typer.jpg',
-        id: '5',
-        name: 'Honda Civic Type R 2024',
-        vehicle_type: 'front-engine, rear-wheel-drive, 4-passenger, 2-door coupe',
-        engine_type: '2.0 L K20C1 turbocharged I4',
-        displacement: '183 in3, 2993 cm3',
-        power: '473 hp @ 6250 rpm',
-        transmission: '6-speed manual',
-        torque: '406 lb-ft @ 2650 rpm',
-        otr_price: 1500000000,
-        daily_price: 3000000,
-        daily_overtime_price: 1500000,
-        hourly_price: 150000
-    },
+    // {
+    //     image:'/cars/honda-typer.jpg',
+    //     id: '5',
+    //     name: 'Honda Civic Type R 2024',
+    //     vehicle_type: 'front-engine, rear-wheel-drive, 4-passenger, 2-door coupe',
+    //     engine_type: '2.0 L K20C1 turbocharged I4',
+    //     displacement: '183 in3, 2993 cm3',
+    //     power: '473 hp @ 6250 rpm',
+    //     transmission: '6-speed manual',
+    //     torque: '406 lb-ft @ 2650 rpm',
+    //     otr_price: 1500000000,
+    //     daily_price: 3000000,
+    //     daily_overtime_price: 1500000,
+    //     hourly_price: 150000
+    // },
 ];
+
+export const navbarTabs = [
+    {
+      label: "Home",
+      description: "Exotic Rent, home of luxury cars",
+      link: "home",
+    },
+    {
+      label: "Rent",
+      description: "Rent luxury cars with the best quality",
+      link: "rent",
+    },
+    {
+      label: "Pricing",
+      description: "Subscribe exotic rent membership",
+      link: "pricing",
+    },
+    {
+      label: "Login",
+      description: "Login to your account ",
+      link: "signin",
+    },
+  ];
