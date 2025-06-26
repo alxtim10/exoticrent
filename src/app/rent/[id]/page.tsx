@@ -5,7 +5,7 @@ import { cars } from "@/utils/constants/data";
 import { toIDR } from "@/utils/formats/formatCurrency";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const CarDetail = ({ params }: { params: { id: string } }) => {
   const [data, setData] = useState<any>(null);
@@ -14,6 +14,8 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
   const [lengthCode, setLengthCode] = useState('');
 
   const [isPayment, setIsPayment] = useState(false);
+
+  const chatEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const findItem = cars.filter((x: any) => x.id == params.id);
@@ -76,6 +78,9 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
               onClick={() => {
                 setIsPayment(true);
                 setLengthCode('H');
+                setTimeout(() => {
+                  chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
               }}
               className="bg-white p-3 flex flex-col items-start justify-around gap-3 shadow-md rounded-md hover:bg-gray-200 transition-all cursor-pointer"
             >
@@ -93,6 +98,9 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
               onClick={() => {
                 setIsPayment(true);
                 setLengthCode('D');
+                setTimeout(() => {
+                  chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
               }}
               className="bg-white p-3 flex flex-col items-start justify-around gap-3 shadow-md rounded-md  hover:bg-gray-200 transition-all cursor-pointer"
             >
@@ -106,7 +114,7 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
             </div>
           </div>
 
-          <div hidden={!isPayment}>
+          <div ref={chatEndRef} hidden={!isPayment}>
             <PaymentCard lengthCode={lengthCode} data={data}/>
           </div>
         </>

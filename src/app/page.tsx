@@ -1,4 +1,5 @@
 import Footer from "@/components/footer/Footer";
+import HamburgerMenu from "@/components/hamburger-menu/HamburgerMenu";
 import Hero from "@/components/hero/Hero";
 import Navbar from "@/components/navigation/Navbar";
 import Partners from "@/components/partners/Partners";
