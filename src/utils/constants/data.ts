@@ -1,4 +1,20 @@
-export const cars = [
+export interface CarsProps {
+  image: string;
+  id: string;
+  name: string;
+  vehicle_type: string;
+  engine_type: string;
+  displacement: string;
+  power: string;
+  transmission: string;
+  torque: string;
+  otr_price: number;
+  daily_price: number;
+  daily_overtime_price: number;
+  hourly_price: number;
+}
+
+export const car: CarsProps[] = [
     {
         image:'/cars/bmw-m4.jpg',
         id: '1',

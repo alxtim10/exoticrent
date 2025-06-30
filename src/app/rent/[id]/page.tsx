@@ -1,7 +1,12 @@
 "use client";
 import PaymentCard from "@/components/payment/PaymentCard";
-import { calculatePrice } from "@/utils/calculation/priceCalculation";
-import { cars } from "@/utils/constants/data";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { car } from "@/utils/constants/data";
 import { toIDR } from "@/utils/formats/formatCurrency";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -18,7 +23,7 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
   const chatEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const findItem = cars.filter((x: any) => x.id == params.id);
+    const findItem = car.filter((x: any) => x.id == params.id);
     setData(findItem[0]);
   }, [params.id]);
 
@@ -35,42 +40,59 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
           />
           <h1 className="text-2xl font-bold mt-3">{data.name}</h1>
           <div>
-            <h1 className="text-md mt-5 mb-2 text-gray-600 font-bold">
-              Specifications
-            </h1>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
-                <h1 className="text-sm font-semibold">Vehicle Type</h1>
-                <h1 className="text-xs">{data.vehicle_type}</h1>
-              </div>
-              <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
-                <h1 className="text-sm font-semibold">Engine Type</h1>
-                <h1 className="text-xs">{data.engine_type}</h1>
-              </div>
-              <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
-                <h1 className="text-sm font-semibold">Displacement</h1>
-                <h1 className="text-xs">{data.displacement}</h1>
-              </div>
-              <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
-                <h1 className="text-sm font-semibold">Power</h1>
-                <h1 className="text-xs">{data.power}</h1>
-              </div>
-              <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
-                <h1 className="text-sm font-semibold">Transmission</h1>
-                <h1 className="text-xs">{data.transmission}</h1>
-              </div>
-              <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
-                <h1 className="text-sm font-semibold">Torque</h1>
-                <h1 className="text-xs">{data.torque}</h1>
-              </div>
-            </div>
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full"
+              defaultValue="item-1"
+            >
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <h1 className="text-md text-gray-600 font-bold my-3">
+                    Specifications
+                  </h1>
+                </AccordionTrigger>
+                <AccordionContent >
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
+                      <h1 className="text-sm font-semibold">Vehicle Type</h1>
+                      <h1 className="text-xs">{data.vehicle_type}</h1>
+                    </div>
+                    <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
+                      <h1 className="text-sm font-semibold">Engine Type</h1>
+                      <h1 className="text-xs">{data.engine_type}</h1>
+                    </div>
+                    <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
+                      <h1 className="text-sm font-semibold">Displacement</h1>
+                      <h1 className="text-xs">{data.displacement}</h1>
+                    </div>
+                    <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
+                      <h1 className="text-sm font-semibold">Power</h1>
+                      <h1 className="text-xs">{data.power}</h1>
+                    </div>
+                    <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
+                      <h1 className="text-sm font-semibold">Transmission</h1>
+                      <h1 className="text-xs">{data.transmission}</h1>
+                    </div>
+                    <div className="bg-white p-2 rounded-md shadow-md flex flex-col gap-1">
+                      <h1 className="text-sm font-semibold">Torque</h1>
+                      <h1 className="text-xs">{data.torque}</h1>
+                    </div>
+                  </div>
+                  <div className="p-3 bg-white shadow-md rounded-md w-full">
+                    <h1 className="text-sm font-semibold">OTR Price</h1>
+                    <h1 className="text-xl font-bold">{toIDR(data.otr_price)}</h1>
+                  </div>
+                </AccordionContent>
 
-            <div className="mt-2 p-3 bg-white shadow-md rounded-md">
-              <h1 className="text-sm font-semibold">OTR Price</h1>
-              <h1 className="text-xl font-bold">{toIDR(data.otr_price)}</h1>
-            </div>
+              </AccordionItem>
+            </Accordion>
+
+
+
+
           </div>
-          <h1 className="text-md mt-5 mb-2 text-gray-600 font-bold">
+          <h1 className="text-md mt-1 mb-2 text-gray-600 font-bold">
             Price Action
           </h1>
           <div className="flex flex-col gap-2">
@@ -115,7 +137,7 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
           </div>
 
           <div ref={chatEndRef} hidden={!isPayment}>
-            <PaymentCard lengthCode={lengthCode} data={data}/>
+            <PaymentCard lengthCode={lengthCode} data={data} />
           </div>
         </>
       )}

@@ -1,0 +1,1 @@
+export const listCategory = ['City Car', 'Luxury Car', 'Sport Car']
