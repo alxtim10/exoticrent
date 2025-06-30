@@ -28,7 +28,7 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
   }, [params.id]);
 
   return (
-    <section className="p-5">
+    <section className="p-5 min-h-screen">
       {data != null && (
         <>
           <Image
