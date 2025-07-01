@@ -8,7 +8,10 @@ import Perks from "@/components/perks/Perks";
 export default function Home() {
   return (
     <section>
-      <section  className="p-5">
+      <div className="py-5 px-5">
+        <Navbar />
+      </div>
+      <section className="p-5">
         <Hero />
         <Partners />
         <Perks />

@@ -7,7 +7,6 @@ const Navbar = () => {
 
   return (
     <nav className="relative">
-
       <div className="flex items-center justify-between">
         <h1
           onClick={() => {

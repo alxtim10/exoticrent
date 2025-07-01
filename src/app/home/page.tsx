@@ -1,8 +1,10 @@
 'use client'
 import HamburgerMenu from '@/components/hamburger-menu/HamburgerMenu'
+import MenuNavbar from '@/components/navigation/MenuNavbar'
 import ListCars from '@/components/rent/ListCars'
 import { car, CarsProps, CategoryProps, listCategory } from '@/utils/constants/data'
-import { ArrowLeft, Map, MapPin, Pin, PinIcon, User } from 'lucide-react'
+import { ArrowLeft, MapPin } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 const page = () => {
@@ -10,6 +12,7 @@ const page = () => {
   const [listCar, setListCar] = useState<CarsProps[]>(car);
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [query, setQuery] = useState<string>('');
+  const router = useRouter();
 
   const filterCategory = (id: number | null) => {
     if (id !== null) {
@@ -31,18 +34,14 @@ const page = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between px-5 pt-5 pb-3">
-        <div className='flex items-center gap-3'>
-          <ArrowLeft className='w-5 h-5'/>
-          <h1 className='font-bold'>Home</h1>
-        </div>
-        <HamburgerMenu />
+      <div className='px-5 pt-5'>
+        <MenuNavbar text='Home' isDark={false} />
       </div>
       <div className='flex items-center gap-2 px-5 pt-5'>
-        <MapPin className='bg-primer text-white rounded-full h-9 w-9 p-2'></MapPin>
+        <MapPin className='bg-primer text-white rounded-full h-9 w-9 p-2' />
         <div className='flex flex-col'>
           <h1 className='text-xs text-[#6e6e6e]'>Your Location</h1>
-          <h1 className='text-sm'>Pasar Minggu, Jakarta Selatan</h1>
+          <h1 className='text-sm font-bold'>Pasar Minggu, Jakarta Selatan</h1>
         </div>
       </div>
       <div className='px-12'>
