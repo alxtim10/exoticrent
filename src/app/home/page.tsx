@@ -1,7 +1,8 @@
 'use client'
+import HamburgerMenu from '@/components/hamburger-menu/HamburgerMenu'
 import ListCars from '@/components/rent/ListCars'
 import { car, CarsProps, CategoryProps, listCategory } from '@/utils/constants/data'
-import { User } from 'lucide-react'
+import { ArrowLeft, Map, MapPin, Pin, PinIcon, User } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
 const page = () => {
@@ -30,8 +31,15 @@ const page = () => {
 
   return (
     <div>
+      <div className="flex items-center justify-between px-5 pt-5 pb-3">
+        <div className='flex items-center gap-3'>
+          <ArrowLeft className='w-5 h-5'/>
+          <h1 className='font-bold'>Home</h1>
+        </div>
+        <HamburgerMenu />
+      </div>
       <div className='flex items-center gap-2 px-5 pt-5'>
-        <User className='bg-primer text-white rounded-full h-10 w-10 p-2'></User>
+        <MapPin className='bg-primer text-white rounded-full h-9 w-9 p-2'></MapPin>
         <div className='flex flex-col'>
           <h1 className='text-xs text-[#6e6e6e]'>Your Location</h1>
           <h1 className='text-sm'>Pasar Minggu, Jakarta Selatan</h1>
@@ -44,10 +52,10 @@ const page = () => {
             setQuery(e.target.value);
           }}
           placeholder='Find your whip'
-          className='border border-[#cfcfcf] rounded-full w-full h-14 translate-y-8 shadow-md px-5 focus:outline-0'
+          className='border border-lightdark rounded-full w-full h-14 translate-y-8 shadow-md px-5 focus:outline-0'
           type="text" name="" id="" />
       </div>
-      <div className='bg-[#ededed] border rounded-t-[60px] px-5 py-10'>
+      <div className='bg-dark rounded-t-[60px] px-5 py-10 text-white'>
         <h1 className='text-lg font-semibold mt-1'>Categories</h1>
         <div className='flex items-center gap-3 my-2'>
           {listCategory.map((item: CategoryProps, i: number) => {
@@ -57,7 +65,7 @@ const page = () => {
                   filterCategory(item.id !== null ? item.id : null);
                   setActiveCategory(item.id)
                 }}
-                className={`${activeCategory == item.id ? 'bg-black text-white' : 'bg-white text-[#9c9c9c] border'} cursor-pointer px-3 py-1 rounded-2xl text-sm`}>{item.category}</span>
+                className={`${activeCategory == item.id ? 'bg-semidark text-primer border border-primer' : 'bg-[#f2f2f2] text-black border border-lightdark'} cursor-pointer px-3 py-1 rounded-2xl text-xs`}>{item.category}</span>
             )
           })}
         </div>

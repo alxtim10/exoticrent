@@ -32,7 +32,7 @@ const CarCard = (props: CarCardProps) => {
           <h1 className="font-bold text-xl">{item.name}</h1>
           <div className="flex items-center justify-between text-sm mt-1">
             <h1 className="text-sm">{item.engine_type}</h1>
-            <h1>{toIDR(item.daily_price)}/day</h1>
+            <h1 className="text-primer">{toIDR(item.daily_price)}/day</h1>
           </div>
         </div>
       </div>

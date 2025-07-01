@@ -14,7 +14,10 @@ const config: Config = {
   			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
   		},
   		colors: {
-  			primer: '#39A7FF',
+  			primer: '#ECAE36',
+			dark: '#101820',
+			lightdark: '#758389',
+			semidark: '#393939',
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
