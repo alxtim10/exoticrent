@@ -105,7 +105,11 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
               <h1 className="text-xs">{data.engine_fuel_type}</h1>
             </div>
           </div>
-          <button className="bg-primer w-full rounded-lg p-3 mt-6 font-bold">Rent Now</button>
+          <button 
+          onClick={() => {
+            router.push(`/checkout/${params.id}`)
+          }}
+          className="bg-primer w-full rounded-lg p-3 mt-6 font-bold">Rent Now</button>
         </>
       )}
     </section>

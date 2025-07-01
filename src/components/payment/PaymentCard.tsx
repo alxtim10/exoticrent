@@ -15,9 +15,9 @@ const PaymentCard = (props: any) => {
   }, [lengthCode]);
 
   return (
-    <div>
-      <h1 className="text-md mt-5 mb-2 text-gray-600 font-bold">Payment</h1>
-      <div className="bg-white p-5 rounded-md shadow-md">
+    <div className="">
+      <h1 className="text-md mt-5 mb-2 text-primer font-bold">Payment</h1>
+      <div className="bg-dark p-5 rounded-md shadow-md">
         <div className="flex items-center justify-center gap-2 w-full text-center">
           <div
             onClick={() => {
