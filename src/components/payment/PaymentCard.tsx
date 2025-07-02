@@ -17,7 +17,7 @@ const PaymentCard = (props: any) => {
   return (
     <div className="">
       <h1 className="text-md mt-5 mb-2 text-primer font-bold">Payment</h1>
-      <div className="bg-dark p-5 rounded-md shadow-md">
+      <div className="rounded-md shadow-md">
         <div className="flex items-center justify-center gap-2 w-full text-center">
           <div
             onClick={() => {
@@ -66,7 +66,7 @@ const PaymentCard = (props: any) => {
         </div>
         <div className="grid grid-cols-4 mt-5">
           <hr className="border-b border-b-gray w-full col-span-1 m-auto h-[1px]"></hr>
-          <p className="text-center break-keep text-xs w-full col-span-2">
+          <p className="text-center text-white break-keep text-xs w-full col-span-2">
             or pay using credit card
           </p>
           <hr className="border-b border-b-gray w-full col-span-1 m-auto h-[1px]"></hr>
@@ -74,24 +74,24 @@ const PaymentCard = (props: any) => {
         <CreditCardForm />
         <div className="border border-gray mt-6"></div>
         <div className="flex justify-between items-center mt-5">
-          <h1 className="text-gray-600 text-sm">Item</h1>
-          <h1 className="text-black text-sm">BMW M4 2024</h1>
+          <h1 className="text-white text-sm">Item</h1>
+          <h1 className="text-white font-bold text-sm">BMW M4 2024</h1>
         </div>
         <div className="flex justify-between items-center mt-2">
-          <h1 className="text-gray-600 text-sm">Time Length</h1>
+          <h1 className="text-white text-sm">Time Length</h1>
           <div className="flex items-center justify-center gap-3">
             <div className="flex items-center justify-center gap-2">
               <span
-                className="cursor-pointer"
+                className="cursor-pointer text-white"
                 onClick={() => {
                   setCount((prev) => prev + 1);
                 }}
               >
                 +
               </span>
-              <h1 className="text-black text-sm">{count}</h1>
+              <h1 className="text-white text-sm">{count}</h1>
               <span
-                className="cursor-pointer outline-none"
+                className="cursor-pointer outline-none text-white"
                 onClick={() => {
                   setCount((prev) => (prev != 1 ? prev - 1 : 1));
                 }}
@@ -99,27 +99,27 @@ const PaymentCard = (props: any) => {
                 -
               </span>
             </div>
-            <h1 className="text-black text-sm">
+            <h1 className="text-white text-sm">
               {lengthCode == "D" ? "Day(s)" : "Hour(s)"}
             </h1>
           </div>
         </div>
         <div className="border border-gray mt-3"></div>
         <div className="flex justify-between items-center mt-5">
-          <h1 className="text-gray-600 text-sm">Discount</h1>
-          <h1 className="text-black text-sm">{toIDR(0)}</h1>
+          <h1 className="text-white text-sm">Discount</h1>
+          <h1 className="text-white text-sm">{toIDR(0)}</h1>
         </div>
         <div className="flex justify-between items-center mt-5">
-          <h1 className="text-gray-600 text-sm">Subtotal</h1>
-          <h1 className="text-black text-sm">
+          <h1 className="text-white text-sm">Subtotal</h1>
+          <h1 className="text-white text-sm">
             {toIDR(
               (lengthCode == "D" ? data.daily_price : data.hourly_price) * count
             )}
           </h1>
         </div>
         <div className="flex justify-between items-center mt-1">
-          <h1 className="text-gray-400 text-xs">*Overtime</h1>
-          <h1 className="text-gray-400 text-xs">
+          <h1 className="text-lightdark text-xs">*Overtime</h1>
+          <h1 className="text-lightdark text-xs">
             {toIDR(
               (lengthCode == "D"
                 ? data.daily_overtime_price
@@ -129,8 +129,8 @@ const PaymentCard = (props: any) => {
         </div>
         <div className="border border-gray mt-3"></div>
         <div className="flex justify-between items-center mt-3">
-          <h1 className="text-blue-600 text-sm font-bold">Total</h1>
-          <h1 className="text-black text-sm font-bold">
+          <h1 className="text-primer text-sm font-bold">Total</h1>
+          <h1 className="text-primer text-sm font-bold">
             {toIDR(
               (lengthCode == "D" ? data.daily_price : data.hourly_price) * count
             )}
@@ -138,7 +138,7 @@ const PaymentCard = (props: any) => {
         </div>
         <div className="flex items-center justify-between mt-5">
           <div></div>
-          <button className="bg-blue-600 text-white p-3 rounded-md shadow-md hover:bg-blue-500 transition-all">
+          <button className="bg-primer font-semibold text-white p-3 rounded-md shadow-md hover:bg-blue-500 transition-all">
             Checkout
           </button>
         </div>

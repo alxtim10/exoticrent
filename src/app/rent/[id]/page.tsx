@@ -26,7 +26,7 @@ const CarDetail = ({ params }: { params: { id: string } }) => {
     <section className="p-5 min-h-screen bg-black">
       {data != null && (
         <>
-          <MenuNavbar text='Home' isDark={true} />
+          <MenuNavbar text='Details' isDark={true} />
           <Image
             className="rounded-xl"
             src={data.image}
