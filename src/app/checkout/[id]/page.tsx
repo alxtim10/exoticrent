@@ -12,6 +12,9 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { Calendar } from "@/components/ui/calendar"
+import { DateRangePicker } from '@/components/ui/date-range-picker';
+import { DateRange } from 'react-day-picker';
+import LeafletMapPicker from '@/components/leaflet-map-picker/LeafletMapPicker';
 
 const CarCheckout = ({ params }: { params: { id: string } }) => {
 
@@ -19,10 +22,10 @@ const CarCheckout = ({ params }: { params: { id: string } }) => {
     const [isPayment, setIsPayment] = useState(false);
     const chatEndRef = useRef<HTMLDivElement | null>(null);
     const [data, setData] = useState<CarsProps | null>(null);
-    const [pickupDate, setPickupDate] = useState<Date | undefined>(undefined);
-    const [returnDate, setReturnDate] = useState<Date | undefined>(undefined);
-    const [open, setOpen] = React.useState(false);
-    const [open1, setOpen1] = React.useState(false);
+    const [date, setDate] = React.useState<DateRange | undefined>({
+        from: new Date(),
+        to: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0),
+    })
 
     useEffect(() => {
         const findItem = car.filter((x: any) => x.id == params.id);
@@ -30,7 +33,7 @@ const CarCheckout = ({ params }: { params: { id: string } }) => {
     }, [params.id]);
 
     return (
-        <div className='p-5 bg-dark'>
+        <div className='p-5 bg-dark min-h-screen'>
             <MenuNavbar text='Checkout' isDark={true} />
             {data && (
                 <>
@@ -43,61 +46,11 @@ const CarCheckout = ({ params }: { params: { id: string } }) => {
                     </div>
                     <div className='my-5'>
                         <h1 className="text-md mt-1 mb-2 text-primer font-bold">
-                            Date
+                            Pickup Date & Location
                         </h1>
-                        <div className='flex items-center justify-center gap-3 w-full'>
-                            <Popover open={open} onOpenChange={setOpen}>
-                                <div className='flex flex-col gap-2 w-full'>
-                                    <h1 className='text-white text-xs'>Pickup Date</h1>
-                                    <PopoverTrigger asChild>
-                                        <button
-                                            id="date"
-                                            className=" justify-between font-normal text-white flex items-center p-2 border border-lightdark rounded-lg text-xs"
-                                        >
-                                            {pickupDate ? pickupDate.toLocaleDateString() : "Select"}
-                                            <ChevronDownIcon className='w-4 h-4' />
-                                        </button>
-                                    </PopoverTrigger>
-                                </div>
-                                <PopoverContent className="w-auto overflow-hidden p-0" align="start">
-                                    <Calendar
-                                        mode="single"
-                                        selected={pickupDate}
-                                        captionLayout="dropdown"
-                                        onSelect={(date) => {
-                                            setPickupDate(date);
-                                            setOpen(false);
-                                        }}
-                                    />
-                                </PopoverContent>
-                            </Popover>
-                            <Popover open={open1} onOpenChange={setOpen1}>
-                                <div className='flex flex-col gap-2 w-full'>
-                                    <h1 className='text-white text-xs'>Return Date</h1>
-                                    <PopoverTrigger asChild>
-                                        <button
-                                            id="date"
-                                            className="w-full justify-between font-normal text-white flex items-center p-2 border border-lightdark rounded-lg text-xs"
-                                        >
-                                            {returnDate ? returnDate.toLocaleDateString() : "Select"}
-                                            <ChevronDownIcon className='w-4 h-4' />
-                                        </button>
-                                    </PopoverTrigger>
-                                </div>
-                                <PopoverContent className="w-auto overflow-hidden p-0" align="start">
-                                    <Calendar
-                                        mode="single"
-                                        selected={returnDate}
-                                        captionLayout="dropdown"
-                                        onSelect={(date) => {
-                                            setReturnDate(date);
-                                            setOpen(false);
-                                        }}
-                                    />
-                                </PopoverContent>
-                            </Popover>
-                        </div>
+                        <DateRangePicker date={date} setDate={setDate} className='' />
                     </div>
+                    <LeafletMapPicker />
                     <h1 className="text-md mt-1 mb-2 text-primer font-bold">
                         Price Action
                     </h1>
